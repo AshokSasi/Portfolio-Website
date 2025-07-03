@@ -1,10 +1,5 @@
 'use client';
 import SplitText from "../../../blocks/TextAnimations/SplitText/SplitText";
-import BlurText from "../../../blocks/TextAnimations/BlurText/BlurText";
-const handleAnimationComplete = () => {
-  console.log('All letters have animated!');
-};
-
 export default function Home() {
   return (
     <div >
