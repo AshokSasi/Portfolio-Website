@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Waves from "../../blocks/Backgrounds/Waves/Waves";
 import DecryptedText from '../../blocks/TextAnimations/DecryptedText/DecryptedText';
 
