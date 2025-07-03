@@ -30,7 +30,7 @@ export default function Home() {
           With a background in computer science, Ive worked on a variety of projects ranging from small personal tools to large-scale applications / web apps. I enjoy tackling new challenges, learning emerging technologies, and continuously improving both my code and my problem-solving approach.
           My toolkit includes technologies like Ruby on Rails, PostgreSQL JavaScript, Docker, React, Node.js, Python and SQL, and Im always open to experimenting with new tools that help bring better solutions to life.
           Outside of coding, youll usually find me with my camera looking for awesome photo spots.
-          Whether you're here to explore my work or looking for a collaborator, Id love to connect!
+          Whether youre here to explore my work or looking for a collaborator, Id love to connect!
         </p>
       </div>
 
