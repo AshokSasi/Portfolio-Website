@@ -17,13 +17,13 @@ export default function Home() {
         style={{zIndex:-1}}
         xGap={12}
         yGap={36}/>
-        <div className="text-7xl font-bold	" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}}>
+        <div className="text-6xl font-bold" style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '92vh'}}>
           <DecryptedText
             speed={100}
             text="ASHOK SASITHARAN"
             sequential={true}
             animateOn="view"
-            revealDirection="center"
+            revealDirection="start"
           />
         </div>
       </div>

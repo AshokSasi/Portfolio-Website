@@ -5,8 +5,8 @@ import { VscHome, VscTable, VscAccount    } from "react-icons/vsc";
 
 const iqtems = [
   { icon: <VscHome size={18} />, label: 'Home', onClick: () => window.location.href='/' },
+  { icon: <VscAccount size={18} />, label: 'About Me', onClick: () => window.location.href='/about-me'},
   { icon: <VscTable size={18} />, label: 'Photo Gallery', onClick: () => window.location.href='/gallery' },
-  { icon: <VscAccount size={18} />, label: 'About Me', onClick: () => alert('Profile!') },
 ];
 
 
@@ -20,6 +20,7 @@ export default function Dock2() {
                 panelHeight={68}
                 baseItemSize={50}
                 magnification={80}
+                spring={{mass:1222222220,stiffness:100,damping:10}}
             />
         </div>
     )
