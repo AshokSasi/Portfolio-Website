@@ -1,13 +1,13 @@
 'use client';
 import Dock from '../../blocks/Components/Dock/Dock';
-import { VscHome, VscTable, VscAccount, VscFeedback} from "react-icons/vsc";
+import { VscHome, VscTable, VscTerminal , VscMail } from "react-icons/vsc";
 
 
 const iqtems = [
   { icon: <VscHome size={18} />, label: 'Home', onClick: () => window.location.href='/' },
-  { icon: <VscAccount size={18} />, label: 'About Me', onClick: () => window.location.href='/about-me'},
+  { icon: <VscTerminal  size={18} />, label: 'Projects', onClick: () => window.location.href='/projects'},
   { icon: <VscTable size={18} />, label: 'Photo Gallery', onClick: () => window.location.href='/gallery' },
-  { icon: <VscFeedback size={18} />, label: 'Contact Me', onClick: () => window.location.href='/contact' },
+  { icon: <VscMail size={18} />, label: 'Contact Me', onClick: () => window.location.href='/contact' },
 ];
 
 
