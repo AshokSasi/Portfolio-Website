@@ -82,7 +82,7 @@ export default function Home() {
                     <Chip label="Git" size="small" color="secondary" />
                   </Stack>
                   <br />
-                  <p className="text-white-700 text-base break-normal">My portfolio website written in Typescript using the Next.js framework.</p>
+                  <p className="text-white-700 text-base break-normal">A small python project that utilizes OpenCV to do realtime face detection.</p>
                 </CardContent>
               </Card>
             </FadeContent>
