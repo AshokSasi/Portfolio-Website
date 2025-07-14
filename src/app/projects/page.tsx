@@ -75,12 +75,10 @@ export default function Home() {
             <FadeContent blur={true} duration={1000} delay={600} easing="ease-out" initialOpacity={0}>
               <Card sx={{ maxWidth: 400, minHeight: 200 }}>
                 <CardContent>
-                  <h2 className="font-bold text-xl mb-2">Portfolio</h2>
+                  <h2 className="font-bold text-xl mb-2">Realtime Face Detection</h2>
                   <Stack direction="row" spacing={1}>
-                    <Chip label="Next.js" size="small" color="secondary" />
-                    <Chip label="Typescript" size="small" color="secondary" />
-                    <Chip label="Tailwind CSS" size="small" color="secondary" />
-                    <Chip label="NPM" size="small" color="secondary" />
+                    <Chip label="Python" size="small" color="secondary" />
+                    <Chip label="OpenCV" size="small" color="secondary" />
                     <Chip label="Git" size="small" color="secondary" />
                   </Stack>
                   <br />
