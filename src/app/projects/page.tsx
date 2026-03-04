@@ -1,22 +1,15 @@
 'use client';
 import SplitText from "../../../blocks/TextAnimations/SplitText/SplitText";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import FadeContent from '../../../blocks/Animations/FadeContent/FadeContent'
-import Stack from '@mui/material/Stack';
+import FadeContent from '../../../blocks/Animations/FadeContent/FadeContent';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LaunchIcon from '@mui/icons-material/Launch';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+const darkTheme = createTheme({ palette: { mode: 'dark' } });
 
 interface Project {
   title: string;
@@ -35,11 +28,25 @@ const projects: Project[] = [
     highlights: [
       "Real-time leaderboard updates",
       "Session scheduling and management",
-      "Offline-capable PWA functionality"
+      "Offline-capable PWA functionality",
+      "Self-hosted with CI/CD pipeline for automated deployments"
     ],
     technologies: ["React", "Express", "Docker", "PWA"],
     liveUrl: "https://shuttle-stats.com",
     delay: 10
+  },
+  {
+    title: "Itinify",
+    description: "Collaborative group travel planning app that brings teams together to plan trips from start to finish — brainstorm, plan, and split costs all in one place.",
+    highlights: [
+      "Collaborative whiteboard for group brainstorming",
+      "Structured itinerary builder for day-by-day planning",
+      "Built-in expense splitter for tracking shared costs",
+      "Self-hosted with CI/CD pipeline for automated deployments"
+    ],
+    technologies: ["React", "Ruby On Rails", "Tailwind CSS", "TypeScript", "PostgreSQL", "Docker"],
+    liveUrl: "https://www.itinify.net/",
+    delay: 200
   },
   {
     title: "YOLO AI + OCR Microservice",
@@ -52,100 +59,115 @@ const projects: Project[] = [
     technologies: ["Flask", "Docker", "Tesseract OCR", "YOLOv5"],
     delay: 400
   },
-  {
-    title: "Portfolio",
-    description: "Modern, responsive portfolio website showcasing my projects and skills with smooth animations and interactive components.",
-    highlights: [
-      "Server-side rendering with Next.js 15",
-      "Custom animation components using GSAP",
-      "Optimized performance and SEO"
-    ],
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Material-UI", "GSAP"],
-    delay: 600
-  }
 ];
 
 export default function Projects() {
   return (
-    <main>
-      <section style={{ width: '100%', minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingBottom: '4rem' }}>
-        <SplitText
-          text="Projects"
-          className="text-3xl font-semibold text-center"
-          delay={100}
-          duration={0.8}
-          ease="power3.out"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          threshold={0.1}
-          rootMargin="-100px"
-          textAlign="center"
-        />
-        <br />
-        <Stack direction="column" spacing={4} justifyContent="center" alignItems="center" sx={{ mt: 3, width: '100%', maxWidth: '500px', px: 2 }}>
-          <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <main>
+        <section className="min-h-screen flex flex-col items-center pt-16 pb-20 px-6">
+
+          <SplitText
+            text="Projects"
+            className="text-5xl font-bold text-center"
+            delay={80}
+            duration={0.4}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.1}
+            rootMargin="-100px"
+            textAlign="center"
+          />
+
+          <FadeContent blur={false} duration={800} delay={500} easing="ease-out" initialOpacity={0}>
+            <p className="text-gray-400 text-lg text-center mt-4 mb-12 max-w-xl">
+              A selection of things I&apos;ve built — from full-stack web apps to AI microservices.
+            </p>
+          </FadeContent>
+
+          <div className="flex flex-col gap-6 w-full max-w-4xl">
             {projects.map((project, index) => (
-              <FadeContent 
+              <FadeContent
                 key={index}
-                blur={true} 
-                duration={1000} 
-                delay={project.delay} 
-                easing="ease-out" 
+                blur={true}
+                duration={1000}
+                delay={project.delay}
+                easing="ease-out"
                 initialOpacity={0}
               >
-                <Card sx={{ maxWidth: 450, minHeight: 200, width: '100%' }}>
-                  <CardContent>
-                    <h2 className="font-bold text-xl mb-2">{project.title}</h2>
-                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mb: 2 }}>
+                <div style={{ borderLeft: '3px solid rgb(222, 23, 83)', backgroundColor: 'rgba(255,255,255,0.04)', borderRadius: '8px' }}
+                  className="flex flex-col md:flex-row gap-6 p-6 md:p-8"
+                >
+                  {/* Left column */}
+                  <div className="flex flex-col gap-4 md:w-56 shrink-0">
+                    <span className="text-xs font-mono text-gray-500">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <h2 className="font-bold text-2xl leading-tight">{project.title}</h2>
+                    <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
                       {project.technologies.map((tech, i) => (
                         <Chip key={i} label={tech} size="small" color="secondary" />
                       ))}
                     </Stack>
-                    <p className="text-white-700 text-base break-normal mb-2">
+                    {(project.githubUrl || project.liveUrl) && (
+                      <div className="flex gap-2 mt-auto pt-2">
+                        {project.githubUrl && (
+                          <Button
+                            size="small"
+                            startIcon={<GitHubIcon />}
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Code
+                          </Button>
+                        )}
+                        {project.liveUrl && (
+                          <Button
+                            size="small"
+                            variant="outlined"
+                            startIcon={<LaunchIcon />}
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Live Demo
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Divider */}
+                  <div className="hidden md:block w-px bg-gray-700 shrink-0" />
+
+                  {/* Right column */}
+                  <div className="flex flex-col gap-3 flex-1">
+                    <p className="text-base text-gray-300 leading-relaxed">
                       {project.description}
                     </p>
                     {project.highlights && (
-                      <ul className="text-sm text-gray-400 list-disc list-inside space-y-1 mt-3">
+                      <ul className="text-sm text-gray-400 space-y-2 mt-1">
                         {project.highlights.map((highlight, i) => (
-                          <li key={i}>{highlight}</li>
+                          <li key={i} className="flex items-start gap-2">
+                            <span style={{ color: 'rgb(222, 23, 83)' }} className="mt-1 shrink-0">▹</span>
+                            {highlight}
+                          </li>
                         ))}
                       </ul>
                     )}
-                  </CardContent>
-                  {(project.githubUrl || project.liveUrl) && (
-                    <CardActions sx={{ px: 2, pb: 2 }}>
-                      {project.githubUrl && (
-                        <Button 
-                          size="small" 
-                          startIcon={<GitHubIcon />}
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Code
-                        </Button>
-                      )}
-                      {project.liveUrl && (
-                        <Button 
-                          size="small" 
-                          startIcon={<LaunchIcon />}
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Live Demo
-                        </Button>
-                      )}
-                    </CardActions>
-                  )}
-                </Card>
+                  </div>
+
+                </div>
               </FadeContent>
             ))}
-          </ThemeProvider>
-        </Stack>
-      </section>
-    </main>
+          </div>
+
+        </section>
+      </main>
+    </ThemeProvider>
   );
 }

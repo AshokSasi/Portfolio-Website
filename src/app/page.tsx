@@ -2,27 +2,28 @@
 import Waves from "../../blocks/Backgrounds/Waves/Waves";
 import DecryptedText from '../../blocks/TextAnimations/DecryptedText/DecryptedText';
 import SplitText from "../../blocks/TextAnimations/SplitText/SplitText";
-import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
 import { SocialIcon } from 'react-social-icons'
 import Button from '@mui/material/Button';
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function Home() {
   return (
     <div>
-      <div className="z-0"><Waves
-        lineColor="rgb(222, 23, 83)"
-        waveSpeedX={0.02}
-        waveSpeedY={0.01}
-        waveAmpX={40}
-        waveAmpY={20}
-        friction={0.9}
-        tension={0.01}
-        maxCursorMove={120}
-        style={{ zIndex: -1 }}
-        xGap={12}
-        yGap={36} />
-        <div className="" style={{ justifyContent: 'center', display: 'flex', height: '92vh', flexDirection: 'column' }}>
+      <div className="z-0">
+        <Waves
+          lineColor="rgb(222, 23, 83)"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
+        <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '92vh', flexDirection: 'column' }}>
+
           <div className="text-6xl font-bold" style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
             <DecryptedText
               speed={100}
@@ -33,10 +34,10 @@ export default function Home() {
             />
           </div>
 
-          <div style={{ justifyContent: "center", alignItems: 'center', display: 'flex' }}>
+          <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
             <SplitText
               text="Full Stack Software Developer"
-              className="text-2xl font-semibold "
+              className="text-2xl font-semibold"
               delay={70}
               duration={0.3}
               ease="power3.out"
@@ -47,23 +48,29 @@ export default function Home() {
               rootMargin="-100px"
             />
           </div>
-          <br />
-          <div style={{ justifyContent: "center", alignItems: 'center', display: 'flex' }}>
-            <Stack spacing={2} direction="row" sx={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}>
-              <IconButton aria-label="delete">
-                <SocialIcon target="_blank" url="https://www.linkedin.com/in/ashok-sasitharan/" />
-              </IconButton>
-              <IconButton aria-label="delete">
-                <SocialIcon target="_blank" url="https://github.com/AshokSasi" />
-              </IconButton>
-              <Button sx={{ maxWidth: 100, maxHeight: 80 }} target="_blank" variant="contained" href="/Ashok_Sasitharan_Resume.pdf" size="medium" color="success">Resume</Button>
-            </Stack>
+
+          <div className="flex items-center gap-4 mt-6">
+            <SocialIcon
+              target="_blank"
+              url="https://www.linkedin.com/in/ashok-sasitharan/"
+              style={{ width: 44, height: 44 }}
+            />
+            <SocialIcon
+              target="_blank"
+              url="https://github.com/AshokSasi"
+              style={{ width: 44, height: 44 }}
+            />
+            <Button
+              target="_blank"
+              variant="contained"
+              href="/Ashok_Sasitharan_Resume.pdf"
+              size="medium"
+              color="success"
+              startIcon={<DownloadIcon />}
+            >
+              Resume
+            </Button>
           </div>
-
-
 
         </div>
       </div>
