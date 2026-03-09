@@ -37,12 +37,15 @@ const projects: Project[] = [
   },
   {
     title: "Itinify",
-    description: "Collaborative group travel planning app that brings teams together to plan trips from start to finish — brainstorm, plan, and split costs all in one place.",
+    description: "Full-stack collaborative travel planning app built and deployed as a solo developer — bringing groups together to brainstorm, plan, and split costs all in one place.",
     highlights: [
-      "Collaborative whiteboard for group brainstorming",
-      "Structured itinerary builder for day-by-day planning",
-      "Built-in expense splitter for tracking shared costs",
-      "Self-hosted with CI/CD pipeline for automated deployments"
+      "Real-time multiplayer whiteboard powered by WebSockets with live cursor tracking",
+      "AI-generated itineraries via Anthropic's Claude API based on destination, budget and interests",
+      "Day-by-day itinerary builder with calendar view and Booking.com integration",
+      "Splitwise-style expense splitter with automatic debt simplification",
+      "Public template marketplace — publish, discover and duplicate community trips",
+      "Self-hosted on a home server via Cloudflare Tunnel with Docker and GitHub Actions CI/CD",
+
     ],
     technologies: ["React", "Ruby On Rails", "Tailwind CSS", "TypeScript", "PostgreSQL", "Docker"],
     liveUrl: "https://www.itinify.net/",
