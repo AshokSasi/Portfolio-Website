@@ -24,7 +24,7 @@ export default function Home() {
         />
         <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', height: '92vh', flexDirection: 'column' }}>
 
-          <div className="text-6xl font-bold" style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+          <div className="text-6xl font-bold" style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', zIndex:11 }}>
             <DecryptedText
               speed={100}
               text="ASHOK SASITHARAN"
@@ -34,7 +34,7 @@ export default function Home() {
             />
           </div>
 
-          <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+          <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', zIndex:10}}>
             <SplitText
               text="Full Stack Software Developer"
               className="text-2xl font-semibold"
